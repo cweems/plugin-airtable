@@ -1,6 +1,6 @@
 import { FlexPlugin } from 'flex-plugin';
 import React from 'react';
-import CustomTaskListComponent from './CustomTaskListComponent';
+import Airtable from './Airtable';
 
 const PLUGIN_NAME = 'AirtablePlugin';
 
@@ -17,11 +17,12 @@ export default class AirtablePlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
-    flex.AgentDesktopView.Panel1.Content.add(
-      <CustomTaskListComponent key="demo-component" />,
-      {
-        sortOrder: -1,
-      }
-    );
+    flex.AgentDesktopView.defaultProps.splitterOptions = {
+      minimumSecondPanelSize: '70%',
+    }
+
+    flex.CRMContainer.defaultProps.uriCallback = (task) => {
+      flex.CRMContainer.Content.replace(<Airtable key={'Airtable'} task={task} />)
+    }
   }
 }
