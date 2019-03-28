@@ -17,6 +17,11 @@ export default class AirtablePlugin extends FlexPlugin {
    * @param manager { import('@twilio/flex-ui').Manager }
    */
   init(flex, manager) {
+    var link = document.createElement( 'link' );
+    link.rel  = 'stylesheet';
+    link.href = 'https://telemagenta-herring-9688.twil.io/assets/styles.css';
+    document.head.appendChild( link );
+
     flex.AgentDesktopView.defaultProps.splitterOptions = {
       minimumSecondPanelSize: '70%',
     }
