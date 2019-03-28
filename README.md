@@ -42,3 +42,7 @@ npm run build
 ```
 
 Afterwards, you'll find in your project a `build/` folder that contains a file with the name of your plugin project. For example `plugin-example.js`. Take this file and upload it into the Assets part of your Twilio Runtime.
+
+## How to deploy styles
+1. Make your changes to `styles.css` and upload to Twilio Assets.
+2. Change the runtime URL/path in the init function of `AirtablePlugin.js` to be your asset's publicly accesible path.
